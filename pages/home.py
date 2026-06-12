@@ -10,4 +10,4 @@ class HomePage(BasePage):
         return self.is_displayed(self.HOME_TEXT)
 
     def get_home_text(self):
-        return self.find(self.HOME_TEXT).text.lower().strip()
+        return self.get_visible_element(self.HOME_TEXT).text.lower().strip()
