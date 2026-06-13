@@ -31,11 +31,17 @@ class BottomNavBar(BasePage):
     def get_dp_button_text(self):
         return self.get_visible_element(self.DP_BUTTON_TEXT).text.lower().strip()
 
+    def click_to_dp_button(self):
+        self.click(self.DP_BUTTON)
+
     def text_button_is_displayed(self):
         return self.is_displayed(self.TEXT_BUTTON)
 
     def get_text_button_text(self):
         return self.get_visible_element(self.TEXT_BUTTON_TEXT).text.lower().strip()
+
+    def click_to_text_button(self):
+        self.click(self.TEXT_BUTTON)
 
     def bg_color_button_is_displayed(self):
         return self.is_displayed(self.BG_COLOR_BUTTON)
@@ -43,8 +49,15 @@ class BottomNavBar(BasePage):
     def bg_color_button_text(self):
         return self.get_visible_element(self.BG_COLOR_BUTTON_TEXT).text.lower().strip()
 
+    def click_to_bg_color_button(self):
+        self.click(self.BG_COLOR_BUTTON)
+
     def inputs_button_is_displayed(self):
         return self.is_displayed(self.INPUTS_BUTTON)
 
     def get_inputs_button_text(self):
         return self.get_visible_element(self.INPUTS_BUTTON_TEXT).text.lower().strip()
+
+
+    def click_to_inputs_button(self):
+            self.click(self.INPUTS_BUTTON)

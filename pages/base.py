@@ -11,26 +11,17 @@ class BasePage:
         self.timeout = timeout
 
     def get_element(self, locator, timeout=None):
-        return WebDriverWait(
-            self.driver,
-            timeout or self.timeout
-        ).until(
+        return WebDriverWait(self.driver, timeout or self.timeout).until(
             EC.presence_of_element_located(locator)
         )
 
     def get_visible_element(self, locator, timeout=None):
-        return WebDriverWait(
-            self.driver,
-            timeout or self.timeout
-        ).until(
+        return WebDriverWait(self.driver, timeout or self.timeout).until(
             EC.visibility_of_element_located(locator)
         )
 
     def get_clickable_element(self, locator, timeout=None):
-        return WebDriverWait(
-            self.driver,
-            timeout or self.timeout
-        ).until(
+        return WebDriverWait(self.driver, timeout or self.timeout).until(
             EC.element_to_be_clickable(locator)
         )
 
