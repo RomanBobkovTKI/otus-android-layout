@@ -51,3 +51,16 @@ def test_normal_and_validation_inputs_become_disabled_after_switch_off(driver):
 
     assert page.is_normal_input_enabled() is False
     assert page.is_validation_input_enabled() is False
+
+
+@pytest.mark.inputs_page
+@pytest.mark.skip(reason="for failed and take screenshot")
+def test_normal_input_text_typing_failed_screenshot_example(driver):
+    page = InputsPage(driver)
+    nav_bar = BottomNavBar(driver)
+
+    nav_bar.click_to_inputs_button()
+
+    page.type_to_normal_input("Hello")
+
+    assert page.get_normal_input_text() == "Wrong text"
