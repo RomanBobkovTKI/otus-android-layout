@@ -37,6 +37,12 @@ def create_driver():
 
     options.app = str(apk_path)
 
+    options.app_package = "com.example.layout_android"
+    options.app_activity = ".MainActivity"
+
+    options.app_wait_activity = "*"
+    options.app_wait_duration = 30000
+
     options.auto_grant_permissions = True
     options.no_reset = False
     options.full_reset = False
