@@ -2,6 +2,7 @@ import logging
 from datetime import datetime
 from pathlib import Path
 
+import allure
 import pytest
 
 from utils.driver_factory import create_driver
@@ -43,11 +44,16 @@ def pytest_runtest_makereport(item, call):
 
         test_name = item.name
         timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-
         screenshot_path = SCREENSHOTS_DIR / f"{test_name}_{timestamp}.png"
 
         driver.save_screenshot(str(screenshot_path))
 
         logger.debug("Screenshot saved: %s", screenshot_path)
+
+        allure.attach.file(
+            str(screenshot_path),
+            name="Failure screenshot",
+            attachment_type=allure.attachment_type.PNG,
+        )
 
         print(f"\nScreenshot saved: {screenshot_path}")

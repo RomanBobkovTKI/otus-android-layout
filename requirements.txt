@@ -3,3 +3,4 @@ Appium-Python-Client
 python-dotenv
 ruff
 pillow
+allure-pytest

@@ -219,3 +219,7 @@ __marimo__/
 
 #screenshot dir
 screenshots
+
+#allure
+allure-results/
+allure-report/
