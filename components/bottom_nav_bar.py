@@ -58,6 +58,5 @@ class BottomNavBar(BasePage):
     def get_inputs_button_text(self):
         return self.get_visible_element(self.INPUTS_BUTTON_TEXT).text.lower().strip()
 
-
     def click_to_inputs_button(self):
-            self.click(self.INPUTS_BUTTON)
+        self.click(self.INPUTS_BUTTON)

@@ -2,3 +2,4 @@ pytest
 Appium-Python-Client
 python-dotenv
 ruff
+pillow
