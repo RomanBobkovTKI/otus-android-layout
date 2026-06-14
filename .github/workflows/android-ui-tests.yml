@@ -69,6 +69,25 @@ jobs:
           profile: pixel_6
           script: |
             adb devices
+
+            echo "Waiting for emulator to be fully booted..."
+            adb wait-for-device
+
+            boot_completed=""
+            until [ "$boot_completed" = "1" ]; do
+              boot_completed=$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')
+              echo "sys.boot_completed=$boot_completed"
+              sleep 5
+            done
+
+            echo "Unlock emulator screen..."
+            adb shell input keyevent 82 || true
+
+            echo "Device info:"
+            adb shell wm size
+            adb shell wm density
+
+            echo "Run tests..."
             pytest --alluredir=allure-results --clean-alluredir
 
       - name: Upload Allure results
@@ -77,6 +96,7 @@ jobs:
         with:
           name: allure-results
           path: allure-results
+          if-no-files-found: ignore
 
       - name: Upload screenshots
         if: always()
