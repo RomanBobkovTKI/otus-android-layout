@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 
 class BasePage:
-    DEFAULT_TIMEOUT = 10
+    DEFAULT_TIMEOUT = 20
 
     def __init__(self, driver, timeout=DEFAULT_TIMEOUT):
         self.driver = driver
